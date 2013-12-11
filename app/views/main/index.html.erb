@@ -1,0 +1,31 @@
+<h1>All Devices</h1>
+<p>
+	<table>
+		<thead>
+			<tr>
+			  <th>Name</th>
+			  <th>Version</th>
+			  <th>Model</th>
+			  <th>Serial number</th>
+			  <th>User</th>
+			  <th>Taken</th>
+			  <th>Checkout</th>
+			</tr>
+		</thead>
+
+		 <tbody>
+		<% @devices.each do |device| %>
+		  <tr>
+		    <td><%= device.name %></td>
+		    <td><%= device.version %></td>
+		    <td><%= device.model %></td>
+		    <td><%= device.serial_number %></td>
+		    <td><%= device.user %></td>
+		    <td><%= device.taken %></td>
+		    <td><%= javascript_include_tag "application" %></td>
+			<td><%= button_tag "Reserve", data: { disable_with => "Please wait..." } %></td>
+		  </tr>
+		<% end %>
+		</tbody>
+	</table>
+</p>

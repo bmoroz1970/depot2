@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyString
+  version: MyString
+  model: MyString
+  serial_number: MyString
+  user: MyString
+  taken: false
+
+two:
+  name: MyString
+  version: MyString
+  model: MyString
+  serial_number: MyString
+  user: MyString
+  taken: false
