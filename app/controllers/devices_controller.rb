@@ -5,6 +5,7 @@ class DevicesController < ApplicationController
   # GET /devices.json
   def index
     @devices = Device.all
+    @device = Device.new
   end
 
   # GET /devices/1
@@ -28,7 +29,7 @@ class DevicesController < ApplicationController
 
     respond_to do |format|
       if @device.save
-        format.html { redirect_to @device, notice: 'Device was successfully created.' }
+        format.html { redirect_to root_path, notice: 'Device was successfully created.' }
         format.json { render action: 'show', status: :created, location: @device }
       else
         format.html { render action: 'new' }
@@ -63,7 +64,13 @@ class DevicesController < ApplicationController
 
   def reserve
     @device = Device.find(params[:id]);
-    @device.taken = !@device.taken;
+   
+    if @device.taken
+      @device.user = ""
+    else
+      @device.user = "Test"
+    end
+    @device.taken = !@device.taken
     @device.save;
   end
 

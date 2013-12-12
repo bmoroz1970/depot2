@@ -1,0 +1,56 @@
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+      </div>
+      <div class="modal-body">
+        <%= form_for(@device) do |f| %>
+          <% if @device.errors.any? %>
+            <div id="error_explanation">
+              <h2><%= pluralize(@device.errors.count, "error") %> prohibited this device from being saved:</h2>
+
+              <ul>
+              <% @device.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+              <% end %>
+              </ul>
+            </div>
+          <% end %>
+
+          <div class="field">
+            <%= f.label :name %><br>
+            <%= f.text_field :name %>
+          </div>
+          <div class="field">
+            <%= f.label :version %><br>
+            <%= f.text_field :version %>
+          </div>
+          <div class="field">
+            <%= f.label :model %><br>
+            <%= f.text_field :model %>
+          </div>
+          <div class="field">
+            <%= f.label :serial_number %><br>
+            <%= f.text_field :serial_number %>
+          </div>
+          <div class="field">
+            <%= f.label :user %><br>
+            <%= f.text_field :user %>
+          </div>
+          <div class="field">
+            <%= f.label :taken %><br>
+            <%= f.check_box :taken %>
+          </div>
+
+      </div>
+      <div class="modal-footer">
+      <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      <%= f.submit "Create", class: "btn btn-primary" %>
+      </div>
+      <% end %>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->

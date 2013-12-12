@@ -1,37 +1,46 @@
-<h1>Listing devices</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Version</th>
-      <th>Model</th>
-      <th>Serial number</th>
-      <th>User</th>
-      <th>Taken</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @devices.each do |device| %>
+<h1>All Devices</h1>
+<p>
+  <table class='table'>
+    <thead>
       <tr>
-        <td><%= device.name %></td>
+        <th>Name</th>
+        <th>Version</th>
+        <th>Model</th>
+        <th>Serial number</th>
+        <th>User</th>
+        <th>Taken</th>
+        <th>Checkout</th>
+      </tr>
+    </thead>
+
+     <tbody>
+    <% @devices.each do |device| %>
+      <tr class="<%= device.serial_number %>">
+        <td><%= link_to device.name, device_path(device) %></td>
         <td><%= device.version %></td>
         <td><%= device.model %></td>
         <td><%= device.serial_number %></td>
-        <td><%= device.user %></td>
-        <td><%= device.taken %></td>
-        <td><%= link_to 'Show', device %></td>
+        <td class="user"> <%= device.user %> </td>
+        <td class="reserve"> <%= device.taken %> </td>
+        <td><%= link_to reserve_device_path(device), class: "btn", remote: true, method: "PUT" do %>
+          <%= device.taken ? "Return" : "Reserve" %>
+        <% end %>
+        </td>
+       <!--  <td><%= link_to 'Show', device %></td>
         <td><%= link_to 'Edit', edit_device_path(device) %></td>
-        <td><%= link_to 'Destroy', device, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Destroy', device, method: :delete, data: { confirm: 'Are you sure?' } %></td> -->
       </tr>
     <% end %>
-  </tbody>
-</table>
+    </tbody>
+  </table>
+</p>
 
 <br>
 
-<%= link_to 'New Device', new_device_path %>
+<button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal" id="js-new-device">
+  New Device
+</button>
+
+<%= render 'new_device_modal' %>
+
+
