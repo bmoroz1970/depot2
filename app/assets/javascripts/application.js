@@ -1,3 +1,3 @@
-//= require bootstrap-toggle-buttons
 //= require jquery
+//= require bootstrap
 //= require jquery_ujs

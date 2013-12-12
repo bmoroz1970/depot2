@@ -1,6 +1,6 @@
 <h1>All Devices</h1>
 <p>
-	<table>
+	<table class='table'>
 		<thead>
 			<tr>
 			  <th>Name</th>
@@ -15,15 +15,17 @@
 
 		 <tbody>
 		<% @devices.each do |device| %>
-		  <tr>
-		    <td><%= device.name %></td>
+		  <tr class="<%= device.serial_number %>">
+		    <td><%= link_to device.name, device_path(device) %></td>
 		    <td><%= device.version %></td>
 		    <td><%= device.model %></td>
 		    <td><%= device.serial_number %></td>
 		    <td><%= device.user %></td>
-		    <td><%= device.taken %></td>
-		    <td><%= javascript_include_tag "application" %></td>
-			<td><%= button_tag "Reserve", data: { disable_with => "Please wait..." } %></td>
+		    <td class="reserve"> <%= device.taken %></td>
+			<td><%= link_to reserve_device_path(device), class: "btn", remote: true, method: "PUT" do %>
+					<%= device.taken ? "Return" : "Reserve" %>
+				<% end %>
+			</td>
 		  </tr>
 		<% end %>
 		</tbody>

@@ -1,8 +1,9 @@
 Depot2::Application.routes.draw do
   get "main/index"
-  get "main/reserve" => "main#reserve"
   
-  resources :devices
+  resources :devices do
+    put :reserve, on: :member
+  end
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

@@ -1,0 +1,2 @@
+$(".<%= @device.serial_number %> .reserve").text("<%= @device.taken %>");
+$(".<%= @device.serial_number %> .btn").text(<%= @device.taken %> ? "Return" : "Reserve");

@@ -43,5 +43,6 @@ end
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
-gem 'twitter-bootstrap-rails'
+# gem 'twitter-bootstrap-rails'
+gem 'bootstrap-sass', '~> 3.0.2.0'
 gem 'rails-bootstrap-toggle-buttons'
