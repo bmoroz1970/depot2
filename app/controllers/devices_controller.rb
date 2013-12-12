@@ -26,16 +26,16 @@ class DevicesController < ApplicationController
   # POST /devices.json
   def create
     @device = Device.new(device_params)
-
-    respond_to do |format|
-      if @device.save
-        format.html { redirect_to root_path, notice: 'Device was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @device }
-      else
-        format.html { render action: 'new' }
-        format.json { render json: @device.errors, status: :unprocessable_entity }
-      end
-    end
+    @device.save
+    # respond_to do |format|
+    #   if @device.save
+    #     format.html { redirect_to root_path, notice: 'Device was successfully created.' }
+    #     format.json { render action: 'show', status: :created, location: @device }
+    #   else
+    #     format.html { render action: 'new' }
+    #     format.json { render json: @device.errors, status: :unprocessable_entity }
+    #   end
+    # end
   end
 
   # PATCH/PUT /devices/1

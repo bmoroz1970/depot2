@@ -1,0 +1,15 @@
+<tr class="<%= device.serial_number %>">
+  <td><%= link_to device.name, device_path(device) %></td>
+  <td><%= device.version %></td>
+  <td><%= device.model %></td>
+  <td><%= device.serial_number %></td>
+  <td class="user"> <%= device.user %> </td>
+  <td class="reserve"> <%= device.taken %> </td>
+  <td><%= link_to reserve_device_path(device), class: "btn", remote: true, method: "PUT" do %>
+    <%= device.taken ? "Return" : "Reserve" %>
+  <% end %>
+  </td>
+<!--   <td><%= link_to 'Show', device %></td>
+  <td><%= link_to 'Edit', edit_device_path(device) %></td> -->
+  <!-- <td><%= link_to 'Destroy', device, method: :delete, data: { confirm: 'Are you sure?' } %></td> -->
+</tr>

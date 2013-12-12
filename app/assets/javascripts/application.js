@@ -1,9 +1,22 @@
 //= require jquery
 //= require jquery_ujs
 //= require bootstrap
+//=require grid
+//=require version
+//=require detector
+//=require formatinf
+//=require errorlevel
+//=require bitmat
+//=require datablock
+//=require bmparser
+//=require datamask
+//=require rsdecoder
+//=require gf256poly
+//=require gf256
+//=require decoder
+//=require qrcode
+//=require findpat
+//=require alignpat
+//=require databr
+//=require touchcanvas
 //= require_tree .
-
-$(document).ready(function () {
-	// console.dir("DOM loaded");
-	// $("#js-new-device").modal();
-});
