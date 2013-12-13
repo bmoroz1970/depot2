@@ -19,3 +19,9 @@
 	border: solid;
 	border-width: 3px 3px 3px 3px;
 }
+video
+{
+    transform: rotateY(180deg);
+    -webkit-transform:rotateY(180deg); /* Safari and Chrome */
+    -moz-transform:rotateY(180deg); /* Firefox */
+}

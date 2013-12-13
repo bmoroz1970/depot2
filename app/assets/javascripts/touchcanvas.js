@@ -40,14 +40,12 @@ function read(jsonString) {
     
 function load() {
     
-    if(isCanvasSupported() && window.File && window.FileReader)
-    {
+    if(isCanvasSupported() && window.File && window.FileReader) {
         initCanvas(640,480);
         qrcode.callback = read;
         document.getElementById("webcamContainer").style.display="inline";
-    }
-    else
-    {
+        setwebcam();
+    } else {
         document.getElementById("webcamContainer").style.display="inline";
         document.getElementById("webcamContainer").innerHTML='<p id="mp1">QR code scanner for HTML5 capable browsers</p><br>'+
         '<br><p id="mp2">sorry your browser is not supported</p><br><br>'+
