@@ -11,3 +11,11 @@
  *= require_self
  *= require_tree .
  */
+
+#outdiv
+{
+    width:640px;
+    height:480px;
+	border: solid;
+	border-width: 3px 3px 3px 3px;
+}
