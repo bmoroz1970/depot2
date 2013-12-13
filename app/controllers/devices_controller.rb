@@ -41,15 +41,16 @@ class DevicesController < ApplicationController
   # PATCH/PUT /devices/1
   # PATCH/PUT /devices/1.json
   def update
-    respond_to do |format|
-      if @device.update(device_params)
-        format.html { redirect_to @device, notice: 'Device was successfully updated.' }
-        format.json { head :no_content }
-      else
-        format.html { render action: 'edit' }
-        format.json { render json: @device.errors, status: :unprocessable_entity }
-      end
-    end
+    @device.update(device_params)
+    # respond_to do |format|
+    #   if @device.update(device_params)
+    #     format.html { redirect_to @device, notice: 'Device was successfully updated.' }
+    #     format.json { head :no_content }
+    #   else
+    #     format.html { render action: 'edit' }
+    #     format.json { render json: @device.errors, status: :unprocessable_entity }
+    #   end
+    # end
   end
 
   # DELETE /devices/1
@@ -62,17 +63,17 @@ class DevicesController < ApplicationController
     end
   end
 
-  def reserve
-    @device = Device.find(params[:id]);
+  # def reserve
+  #   @device = Device.find_by(serial_number: params[:id]);
    
-    if @device.taken
-      @device.user = ""
-    else
-      @device.user = "Test"
-    end
-    @device.taken = !@device.taken
-    @device.save;
-  end
+  #   if @device.taken
+  #     @device.user = ""
+  #   else
+  #     @device.user = "Test"
+  #   end
+  #   @device.taken = !@device.taken
+  #   @device.save;
+  # end
 
   private
     # Use callbacks to share common setup or constraints between actions.

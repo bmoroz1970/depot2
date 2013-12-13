@@ -10,4 +10,12 @@ tbody{
     	 text-align:   right;
     	 padding-left: 1em;
 		}
+
+	tr {
+		-webkit-transition: background .7s;
+		transition: background .7s;
+	}
+	.hightlight {
+		background: yellowgreen;
+	}
 }
