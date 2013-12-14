@@ -19,6 +19,13 @@
 	border: solid;
 	border-width: 3px 3px 3px 3px;
 }
+#qrCodeContainer 
+{
+	width:300px;
+    height:300px;
+	border: solid;
+	border-width: 3px 3px 3px 3px;
+}
 video
 {
     transform: rotateY(180deg);

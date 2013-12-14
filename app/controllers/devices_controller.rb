@@ -1,5 +1,5 @@
 class DevicesController < ApplicationController
-  before_action :set_device, only: [:show, :edit, :update, :destroy]
+  before_action :set_device, only: [:show, :edit, :update, :destroy, :qrcode]
 
   # GET /devices
   # GET /devices.json
@@ -63,17 +63,8 @@ class DevicesController < ApplicationController
     end
   end
 
-  # def reserve
-  #   @device = Device.find_by(serial_number: params[:id]);
-   
-  #   if @device.taken
-  #     @device.user = ""
-  #   else
-  #     @device.user = "Test"
-  #   end
-  #   @device.taken = !@device.taken
-  #   @device.save;
-  # end
+  def qrcode
+  end
 
   private
     # Use callbacks to share common setup or constraints between actions.

@@ -36,7 +36,17 @@ function read(jsonString) {
         }
     });
     
-}   
+}
+
+function createQr()
+{
+    // var data = document.getElementById("data").value;
+    var data = "Artem Moroz";
+
+    // data = encodeURIComponent(data);
+    document.getElementById("qrCodeContainer").innerHTML="<img src='https://chart.googleapis.com/chart?chs=300x300&cht=qr&chl="+data+"'/>";
+}
+
     
 function load() {
     

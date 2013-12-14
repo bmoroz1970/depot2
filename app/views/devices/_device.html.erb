@@ -4,6 +4,7 @@
   <td><%= device.serial_number %></td>
   <td class="user"> <%= device.user %> </td>
   <td class="reserve"> <%= device.taken %> </td>
+  <td class="qrcode"><%= link_to 'Get QR', qrcode_device_path(device), class: "btn btn-success btn-lg", remote: true %></td>
 <!--   <td><%= link_to 'Show', device %></td>
   <td><%= link_to 'Edit', edit_device_path(device) %></td> -->
   <!-- <td><%= link_to 'Destroy', device, method: :delete, data: { confirm: 'Are you sure?' } %></td> -->

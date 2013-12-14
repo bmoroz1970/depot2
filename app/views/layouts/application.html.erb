@@ -10,16 +10,16 @@
 
 	<div class="container">
 		
-
-		<!-- <br><button class="btn" onclick="setwebcam()">Scan</button><br> -->
-		
 		<div class="container" id="webcamContainer">
 			<div id="outdiv">
 			</div>
 		</div>
 		
 		<canvas id="qr-canvas" style="display:none;" width="640" height="480"></canvas>
+		
 		<%= yield %>
+		<div id="qrCodeContainer">
+		</div>
 	</div>
 </body>
 </html>
