@@ -1,5 +1,6 @@
 <tr class="<%= device.serial_number %>">
-  <td><%= link_to device.name, device_path(device) %></td>
+  <!-- <td><%= link_to device.name, device_path(device) %></td> -->
+  <td><%= device.name %></td>
   <td><%= device.model %></td>
   <td><%= device.serial_number %></td>
   <td class="user"> <%= device.user %> </td>
