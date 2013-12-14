@@ -11,11 +11,11 @@ var moz=false;
 var v=null;
 var vidhtml = '<video id="v" autoplay></video>';
 
-var camhtml='<object  id="iembedflash" classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=7,0,0,0" width="320" height="240"> '+
+var camhtml='<object  id="iembedflash" classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=7,0,0,0" width="500" height="375"> '+
     '<param name="movie" value="camcanvas.swf" />'+
     '<param name="quality" value="high" />'+
     '<param name="allowScriptAccess" value="always" />'+
-    '<embed  allowScriptAccess="always"  id="embedflash" src="camcanvas.swf" quality="high" width="320" height="240" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer" mayscript="true"  />'+
+    '<embed  allowScriptAccess="always"  id="embedflash" src="camcanvas.swf" quality="high" width="500" height="375" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer" mayscript="true"  />'+
 '</object>';
     
 function read(jsonString) {
@@ -44,14 +44,14 @@ function createQr()
     var data = "Artem Moroz";
 
     // data = encodeURIComponent(data);
-    document.getElementById("qrCodeContainer").innerHTML="<img src='https://chart.googleapis.com/chart?chs=300x300&cht=qr&chl="+data+"'/>";
+    document.getElementById("qrCodeContainer").innerHTML="<img src='https://chart.googleapis.com/chart?chs=405x405&cht=qr&chl="+data+"'/>";
 }
 
     
 function load() {
     
     if(isCanvasSupported() && window.File && window.FileReader) {
-        initCanvas(640,480);
+        initCanvas(500,375);
         qrcode.callback = read;
         document.getElementById("webcamContainer").style.display="inline";
         setwebcam();

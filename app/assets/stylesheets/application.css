@@ -11,23 +11,31 @@
  *= require_self
  *= require_tree .
  */
-
+#webcamContainer
+{
+     float: left;
+     width: auto;
+     margin: 12px;
+}
 #outdiv
 {
-    width:640px;
-    height:480px;
-	border: solid;
-	border-width: 3px 3px 3px 3px;
+    width:500px;
+    height:375px;
+	border: 2px solid black;
+    float: left;
 }
 #qrCodeContainer 
 {
-	width:300px;
-    height:300px;
-	border: solid;
-	border-width: 3px 3px 3px 3px;
+	width:375px;
+    height:375px;
+	border: 2px solid black;
+    float: left;
+    margin: 12px;
 }
 video
 {
+    width: 500px;
+    height: 375px;
     transform: rotateY(180deg);
     -webkit-transform:rotateY(180deg); /* Safari and Chrome */
     -moz-transform:rotateY(180deg); /* Firefox */
