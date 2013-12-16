@@ -1,2 +1,2 @@
-var coded = encodeURIComponent("<%= @device.to_json %>");
-$("#qrCodeContainer").html("<img src='https://chart.googleapis.com/chart?chs=375x375&cht=qr&chl=" + coded + "'/>");
+var serial_number = encodeURIComponent('{"serial_number": "<%= @device.serial_number%>" }');
+$("#qrCodeContainer").html("<img src='https://chart.googleapis.com/chart?chs=375x375&cht=qr&chl=" + serial_number + "'/>");

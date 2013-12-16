@@ -11,6 +11,10 @@
  *= require_self
  *= require_tree .
  */
+@media print
+{
+p.test {font-family:times,serif;font-size:10px;}
+}
 #webcamContainer
 {
      float: left;

@@ -42,15 +42,6 @@ class DevicesController < ApplicationController
   # PATCH/PUT /devices/1.json
   def update
     @device.update(device_params)
-    # respond_to do |format|
-    #   if @device.update(device_params)
-    #     format.html { redirect_to @device, notice: 'Device was successfully updated.' }
-    #     format.json { head :no_content }
-    #   else
-    #     format.html { render action: 'edit' }
-    #     format.json { render json: @device.errors, status: :unprocessable_entity }
-    #   end
-    # end
   end
 
   # DELETE /devices/1
@@ -64,6 +55,13 @@ class DevicesController < ApplicationController
   end
 
   def qrcode
+  end
+
+  def update_status_taken
+    @device = Device.find_by(serial_number: params[:id]);
+    @device.taken = !@device.taken
+    @device.user = params[:device].user
+    @device.save
   end
 
   private

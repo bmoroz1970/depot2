@@ -21,32 +21,25 @@ var camhtml='<object  id="iembedflash" classid="clsid:d27cdb6e-ae6d-11cf-96b8-44
 function read(jsonString) {
     var jsonObj = $.parseJSON(jsonString);
     
-    jsonObj.taken = !jsonObj.taken;
-    
-    $.ajax({
-        type: 'PUT',
-        url: "/devices/1",    
-        data: {device: jsonObj},
-        dataType: "script",
-        success: function(data) {
-           console.log("Device added", jsonObj);
-        },
-        error: function(err) {
-            // alert("Device does not exist");
-        }
+    $("#nameModal").modal();
+
+    $(".js-submit").on("click", function(arguments) {
+        //CODE TO VALIDATE INPUT
+        jsonObj.user = $(".js-name").val();
+        $.ajax({
+            type: 'PUT',
+            url: "/devices/"+jsonObj.serial_number+"/update_status_taken",    
+            data: {device: jsonObj},
+            dataType: "script",
+            success: function(data) {
+               console.log("Device added", jsonObj);
+            },
+            error: function(err) {
+                // alert("Device does not exist");
+            }
+        });
     });
-    
 }
-
-function createQr()
-{
-    // var data = document.getElementById("data").value;
-    var data = "Artem Moroz";
-
-    // data = encodeURIComponent(data);
-    document.getElementById("qrCodeContainer").innerHTML="<img src='https://chart.googleapis.com/chart?chs=405x405&cht=qr&chl="+data+"'/>";
-}
-
     
 function load() {
     
