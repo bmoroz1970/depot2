@@ -60,7 +60,7 @@ class DevicesController < ApplicationController
   def update_status_taken
     @device = Device.find_by(serial_number: params[:id]);
     @device.taken = !@device.taken
-    @device.user = params[:device].user
+    @device.user = params[:device][:user]
     @device.save
   end
 

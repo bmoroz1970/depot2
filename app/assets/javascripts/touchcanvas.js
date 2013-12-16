@@ -17,27 +17,41 @@ var camhtml='<object  id="iembedflash" classid="clsid:d27cdb6e-ae6d-11cf-96b8-44
     '<param name="allowScriptAccess" value="always" />'+
     '<embed  allowScriptAccess="always"  id="embedflash" src="camcanvas.swf" quality="high" width="500" height="375" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer" mayscript="true"  />'+
 '</object>';
-    
+function isTrue(taken){
+    return taken.replace(/^\s\s*/, '').replace(/\s\s*$/, '') === "true" ;
+}
 function read(jsonString) {
     var jsonObj = $.parseJSON(jsonString);
-    
-    $("#nameModal").modal();
+    var taken = $("." + jsonObj.serial_number + " .reserve").text();
+    if( isTrue(taken) ){
+        console.log("HERE", $("." + jsonObj.serial_number + " .reserve").text());
 
-    $(".js-submit").on("click", function(arguments) {
-        //CODE TO VALIDATE INPUT
-        jsonObj.user = $(".js-name").val();
-        $.ajax({
-            type: 'PUT',
-            url: "/devices/"+jsonObj.serial_number+"/update_status_taken",    
-            data: {device: jsonObj},
-            dataType: "script",
-            success: function(data) {
-               console.log("Device added", jsonObj);
-            },
-            error: function(err) {
-                // alert("Device does not exist");
-            }
-        });
+        jsonObj.user = "";
+        submitQr(jsonObj);
+    } else {
+        console.log("THERE", $("." + jsonObj.serial_number + " .reserve").text());
+        $("#nameModal").modal();
+
+        $(".js-submit").on("click", function() {
+            //CODE TO VALIDATE INPUT
+           jsonObj.user = $(".js-name").val();
+           submitQr(jsonObj);
+        }); 
+    }
+}
+
+function submitQr(jsonObj) {
+    $.ajax({
+        type: 'PUT',
+        url: "/devices/"+jsonObj.serial_number+"/update_status_taken",    
+        data: {device: jsonObj},
+        dataType: "script",
+        success: function(data) {
+           console.log("Device added", jsonObj);
+        },
+        error: function(err) {
+            // alert("Device does not exist");
+        }
     });
 }
     
