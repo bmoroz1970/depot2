@@ -36,6 +36,9 @@ p.test {font-family:times,serif;font-size:10px;}
     float: left;
     margin: 13px;
 }
+#qr-canvas{
+    display: none;
+}
 video
 {
     width: 500px;
